@@ -189,7 +189,8 @@ const Dashboard = () => {
             break;
           case wstypes.I_EXITED_ROOM:
             dispatch({ type: types.REMOVE_AUDIO, payload: data.data.id });
-            if (room && room.members.length === 1) {
+            // no one else is in the room, then exit
+            if (room && room.members.length === 0) {
               exitRoom();
             }
             break;
