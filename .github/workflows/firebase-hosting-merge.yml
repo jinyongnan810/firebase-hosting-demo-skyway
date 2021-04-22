@@ -12,6 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
+        env:
+          SERVER_URL: "${{ secrets.SERVER_URL }}"
+          WEBSOCKET_URL: "${{ secrets.WEBSOCKET_URL }}"
+          SKYWAY_KEY: "${{ secrets.SKYWAY_KEY }}"
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
@@ -20,6 +24,3 @@ jobs:
           projectId: fir-demo-55bb1
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
-          SERVER_URL: "${{ secrets.SERVER_URL }}"
-          WEBSOCKET_URL: "${{ secrets.WEBSOCKET_URL }}"
-          SKYWAY_KEY: "${{ secrets.SKYWAY_KEY }}"
