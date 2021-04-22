@@ -37,7 +37,7 @@ module.exports = () => {
       ],
     },
     devServer: {
-      contentBase: path.join(rootPath, "dist/renderer"),
+      contentBase: path.join(rootPath, "dist"),
       historyApiFallback: true,
       compress: true,
       hot: true,
@@ -47,7 +47,7 @@ module.exports = () => {
       https: true,
     },
     output: {
-      path: path.resolve(rootPath, "dist/renderer"),
+      path: path.resolve(rootPath, "dist"),
       filename: "js/[name].js",
       publicPath: "./",
     },
