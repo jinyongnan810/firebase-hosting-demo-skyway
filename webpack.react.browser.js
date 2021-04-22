@@ -56,7 +56,7 @@ module.exports = () => {
     },
     output: {
       path: path.resolve(rootPath, "dist"),
-      filename: "js/[name].js",
+      filename: "js/[name].[contenthash].js",
       publicPath: "./",
     },
     plugins: [
