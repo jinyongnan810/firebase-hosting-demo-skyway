@@ -1,4 +1,7 @@
-#### Needed env variables
+#### Covers
 
-- SERVER_URL=http://localhost:5000
-- WEBSOCKET_URL=ws://localhost:5000
+- typescript
+- react-redux
+- websocket
+- skyway
+- firebase hosting
