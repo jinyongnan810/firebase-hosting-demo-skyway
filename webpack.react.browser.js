@@ -8,10 +8,18 @@ const rootPath = path.resolve(__dirname, ".");
 module.exports = () => {
   // replace process.env.*
   const env = dotenv.config().parsed;
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
-    return prev;
-  }, {});
+  const envKeys = {};
+  if (env) {
+    Object.keys(env).reduce((prev, next) => {
+      prev[`process.env.${next}`] = JSON.stringify(env[next]);
+      return prev;
+    }, envKeys);
+  } else {
+    const keys = ["SERVER_URL", "WEBSOCKET_URL", "SKYWAY_KEY"];
+    keys.forEach((k) => {
+      envKeys[`process.env.${k}`] = process.env[k];
+    });
+  }
 
   return {
     resolve: {
