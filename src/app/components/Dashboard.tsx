@@ -214,8 +214,17 @@ const Dashboard = () => {
     // clean connections when leaving the page
     return function cleanUp() {
       if (ws) {
+        if (room) {
+          room.close();
+          room = null;
+        }
+        if (peer) {
+          peer.disconnect();
+          peer = null;
+        }
         ws!.close();
         ws = null;
+
         dispatch({ type: types.CLEAR_AUDIO });
       }
     };

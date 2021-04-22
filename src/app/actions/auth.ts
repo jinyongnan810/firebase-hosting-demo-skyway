@@ -50,6 +50,7 @@ export const login = (
       payload: res.data,
     });
   } catch (error) {
+    console.error(error);
     dispatch(showMessages("warning", error.response.data.errors));
   }
 };
@@ -72,6 +73,7 @@ export const signup = (
       showMessages("info", [{ message: `Dear ${email},Welcome!` }], true)
     );
   } catch (error) {
+    console.error(error);
     dispatch(showMessages("warning", error.response.data.errors));
   }
 };
